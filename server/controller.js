@@ -3,9 +3,6 @@ const random = require('mongoose-simple-random');
 
 const controller = {
   fetch: (req, res) => {
-    // db.search.count().exec((err, count) => {
-
-    // })
     db.search
       .findRandom(req.query, {}, { limit: 10 }, (err, results) => {
         if (err) {
@@ -37,7 +34,6 @@ const controller = {
         res.status(201).send(result);
       }
     });
-    console.log('here is the req from post', req.body);
   }
 };
 

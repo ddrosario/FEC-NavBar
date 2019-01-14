@@ -4,7 +4,6 @@ const router = require('express').Router();
 router
   .route('/searches')
   .get((req, res) => {
-    console.log(req.query);
     controller.fetch(req, res);
   })
   .post((req, res) => {
@@ -13,7 +12,6 @@ router
 router
   .route('/brands')
   .get((req, res) => {
-    console.log(req.body);
     controller.fetch(req, res);
   })
   .post((req, res) => {

@@ -5,8 +5,6 @@ const Brands = props => {
   let featured = props.brands.filter(
     (brand, index) => index >= 5 && index < 10
   );
-
-  console.log(props.ads);
   return (
     <div className="NavDrops">
       <div className="navs-text">

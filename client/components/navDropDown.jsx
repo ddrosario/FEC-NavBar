@@ -16,7 +16,6 @@ class NavDropDown extends React.Component {
     };
   }
   render() {
-    console.log(this.props.ads);
     let navRender;
     if (this.props.name === 'NEW') {
       let newads = this.props.ads.filter((ad, index) => {

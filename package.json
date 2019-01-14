@@ -23,8 +23,6 @@
   "dependencies": {
     "axios": "^0.18.0",
     "babel-plugin-styled-components": "^1.10.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
     "css-loader": "^1.0.0",
@@ -40,6 +38,8 @@
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
     "chai": "^4.2.0",
     "chai-enzyme": "^1.0.0-beta.1",
     "enzyme": "^3.8.0",
