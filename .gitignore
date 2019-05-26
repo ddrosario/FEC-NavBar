@@ -6,3 +6,4 @@ grunt-aws.json
 .bablerc
 Dockerfile
 secret
+static/bundle.js
