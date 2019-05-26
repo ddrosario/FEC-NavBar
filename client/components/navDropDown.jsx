@@ -18,36 +18,43 @@ class NavDropDown extends React.Component {
   render() {
     console.log(this.props.ads);
     let navRender;
-    if (this.props.name === 'NEW') {
-      let newads = this.props.ads.filter((ad, index) => {
-        return ad.location === 'NEW';
-      });
-      navRender = <New ads={newads} />;
-    } else if (this.props.name === 'BRANDS') {
-      let newads = this.props.ads.filter((ad, index) => {
-        return ad.location === 'BRANDS';
-      });
-      navRender = <Brands brands={this.state.brands} ads={newads} />;
-    } else if (this.props.name === 'GIFTS') {
-      let newads = this.props.ads.filter((ad, index) => {
-        return ad.location === 'GIFTS';
-      });
-      navRender = <Gifts ads={newads} />;
-    } else if (this.props.name === 'COMMUNITY') {
-      let newads = this.props.ads.filter((ad, index) => {
-        return ad.location === 'COMMUNITY';
-      });
-      navRender = <Community ads={newads} />;
-    } else if (this.props.name === 'HOW-TOS') {
-      let newads = this.props.ads.filter((ad, index) => {
-        return ad.location === 'HOW-TOS';
-      });
-      navRender = <HowTos ads={newads} />;
-    } else {
-      let newads = this.props.ads.filter((ad, index) => {
-        return ad.location === 'STORES';
-      });
-      navRender = <StoresLocator ads={newads} />;
+    let newads;
+    switch (this.props.name) {
+      case 'NEW':
+        newads = this.props.ads.filter((ad, index) => {
+          return ad.location === 'NEW';
+        });
+        navRender = <New ads={newads} />;
+        break;
+      case 'BRANDS':
+        newads = this.props.ads.filter((ad, index) => {
+          return ad.location === 'BRANDS';
+        });
+        navRender = <Brands brands={this.state.brands} ads={newads} />;
+        break;
+      case 'GIFTS':
+        newads = this.props.ads.filter((ad, index) => {
+          return ad.location === 'GIFTS';
+        });
+        navRender = <Gifts ads={newads} />;
+        break;
+      case 'COMMUNITY':
+        newads = this.props.ads.filter((ad, index) => {
+          return ad.location === 'COMMUNITY';
+        });
+        navRender = <Community ads={newads} />;
+        break;
+      case 'HOW-TOS':
+        newads = this.props.ads.filter((ad, index) => {
+          return ad.location === 'HOW-TOS';
+        });
+        navRender = <HowTos ads={newads} />;
+        break;
+      default:
+        newads = this.props.ads.filter((ad, index) => {
+          return ad.location === 'STORES';
+        });
+        navRender = <StoresLocator ads={newads} />;
     }
     return (
       <div
