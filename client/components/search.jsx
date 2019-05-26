@@ -6,45 +6,34 @@ import axios from 'axios';
 class Search extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props.searches);
     this.state = {
       query: '',
       previous: [],
-      toggleDrop: false
+      toggleDrop: false,
     };
     this.showSearches = this.showSearches.bind(this);
-    console.log('this is the searches', props.searches);
-    // props.searches.filter((search, i) => i < 5),
+    this.fetchSearches = this.fetchSearches.bind(this);
   }
   componentDidMount() {
-    axios
-      .get('http://52.53.254.60:5000/product/searches', { params: {} })
-      .then(({ data }) => {
-        console.log('here is the response', data);
-        this.setState({
-          previous: data
-            .map(search => {
-              return search.search;
-            })
-            .filter((search, i) => i < 5)
-        });
-        console.log('inside app', this.state.previous);
-      })
-      .catch(err => {
-        console.error('Something went wrong', err);
-      });
+    this.fetchSearches();
   }
-  // postSearch(e) {
-  //   axios.post('/product',)
-  // }
+  async fetchSearches () {
+    try {
+      const { data } = await axios.get('/product/searches', { params: {} });
+      this.setState({
+        previous: data.map(search => search.search)
+                      .filter((_search, i) => i < 5)
+      });
+    } catch (err) {
+      console.error('Could not fetch: ', err);
+    }
+  }
   showSearches(e) {
     this.setState({
       toggleDrop: !this.state.toggleDrop
     });
-    console.log('selected');
   }
   render() {
-    console.log(this.state.previous);
     return (
       <form
         className="Search"
@@ -62,9 +51,7 @@ class Search extends React.Component {
           {this.state.toggleDrop ? (
             <div id="searchDrop">
               <div>Previous Searches</div>
-              {this.state.previous.map((search, i) => {
-                return <div key={i}>{search}</div>;
-              })}
+              {this.state.previous.map((search, i) => <div key={i}>{search}</div>)}
             </div>
           ) : (
             <div />
