@@ -1,7 +1,4 @@
 import React from 'react';
-import SpecificCatEntry from './specificCatEntry.jsx';
-import styled from 'styled-components';
-//onMouseOut={props.toggle}
 
 var CategoryEntry = props => {
   return (
