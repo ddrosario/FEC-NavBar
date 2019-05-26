@@ -21,20 +21,18 @@ class Shop extends React.Component {
         'SALE'
       ],
       toggleDrop: false,
-      display: false
+      display: false,
     };
     this.displayBox = this.displayBox.bind(this);
     this.showDropDown = this.showDropDown.bind(this);
     this.hideBox = this.hideBox.bind(this);
   }
   showDropDown() {
-    // console.log('toggle');
     this.setState({
       toggleDrop: !this.state.toggleDrop
     });
   }
   displayBox(e) {
-    console.log('this should activate', e);
     this.setState({
       display: true
     });
