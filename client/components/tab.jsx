@@ -1,7 +1,4 @@
 import React from 'react';
-import CssModules from 'react-css-modules';
-// import NavDropDown from './navDropDown';
-// import styles from './styles.css';
 import styled from 'styled-components';
 const TabDiv = styled.div`
   float: left;
